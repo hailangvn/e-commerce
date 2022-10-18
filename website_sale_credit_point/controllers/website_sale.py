@@ -18,5 +18,5 @@ class WebsiteSale(WebsiteSale):
                 order.credit_point_check()
             except UserError as exc:
                 # error msg if not enought points
-                request.session["credit_point_limit_error"] = exc.name
+                request.session["credit_point_limit_error"] = exc.args[0]
                 return request.redirect("/shop/cart/")
